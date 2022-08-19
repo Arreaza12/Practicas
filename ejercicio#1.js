@@ -1,8 +1,5 @@
-let sentence = `el señor de los anillos`;
-let letra = ``;
-
-for (let i = 0; i < sentence.length; i++) {
-  if (sentence) {
-    console.log(sentence[i]);
+for (let i = 0; i <= 10; i++) {
+  if (i % 4 == 0) {
+    console.log(i * 2);
   }
 }
