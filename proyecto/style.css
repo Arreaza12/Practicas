@@ -18,6 +18,14 @@ body {
 h1 {
   letter-spacing: 3px;
 }
+input {
+  width: 50vm;
+  padding: 10px;
+  outline: none;
+  border: 5px solid #ccd1e4;
+  font-weight: 600;
+  border-radius: 8%;
+}
 
 .poke_container {
   display: flex;
@@ -73,4 +81,14 @@ h1 {
 }
 .grow:hover {
   transform: scale(1.1);
+}
+
+.grid-fluid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.loader {
+  display: block;
+  margin: auto;
 }
