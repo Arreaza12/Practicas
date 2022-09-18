@@ -1,1 +1,1 @@
-El siguiente codigo es una parte del proyecto final, el cual sera crear una Pokedex que dara informacion detallada de cada pokemon. sea nombre, caracteristicas y tipo.
+
