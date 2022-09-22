@@ -108,8 +108,10 @@ input {
 .dragon,
 .ice,
 .psychic,
-.fighting {
-  background-color: #F08030;
+.fighting,
+.oneType,
+.secondType {
+  background-color: #f08030;
   color: white;
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
@@ -167,6 +169,10 @@ input {
   left: 0;
 }
 
+.cardSize {
+  text-align: center;
+}
+
 .overlay-hidden {
   display: none;
 }
@@ -180,4 +186,43 @@ input {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.pokeImagen {
+  padding-left: 100px;
+  margin-top: 5px;
+  position: relative;
+}
+
+.basicInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  line-height: 0;
+}
+.caract {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  text-align: center;
+}
+
+.twoTypes {
+  height: 5px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.oneType,
+.secondType {
+  padding: 15px;
+  gap: 40px;
+  color: white;
+  border-radius: 15px;
+  height: 30px;
+  width: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
