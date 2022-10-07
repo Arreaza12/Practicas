@@ -22,9 +22,17 @@ input {
   width: 50vm;
   padding: 10px;
   outline: none;
-  border: 5px solid #ccd1e4;
   font-weight: 600;
-  border-radius: 8%;
+}
+
+.search {
+  position: relative;
+}
+
+.search div {
+  position: absolute;
+  top: 50%;
+  transform: translate(80%, -50%);
 }
 
 .poke_container {
@@ -109,8 +117,7 @@ input {
 .ice,
 .psychic,
 .fighting,
-.oneType,
-.secondType {
+.flying {
   background-color: #f08030;
   color: white;
   padding: 0.5rem 1rem;
@@ -159,6 +166,9 @@ input {
 }
 .ice {
   background-color: #98d8d8;
+}
+.flying {
+  background-color: #baaaff;
 }
 .overlay {
   width: 100vw;
@@ -225,4 +235,22 @@ input {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+input[type="search"] {
+  width: 50px; /*ancho por defecto*/
+  background: #ededed url("search-icon.png") no-repeat 9px center; /*icono lupa*/
+  padding: 9px 10px 9px 32px;
+  border-radius: 15em;
+  -webkit-transition: all 0.5s; /* transición de .5seg a todos los elementos para chrome*/
+  -moz-transition: all 0.5s; /* transición de .5seg a todos los elementos para mozilla*/
+  -o-transition: all 0.5s; /* transición de .5seg a todos los elementos para ophera*/
+  transition: all 0.5s; /* transición de .5seg a todos los elementos*/
+  outline: none; /* ocultar el fucos automático de los input */
+}
+input[type="search"]:focus {
+  width: 200px; /*tamaño del boton buscar al hacer click*/
+  padding-left: 32px; /*espacio entre el icono lupa y el placeholder*/
+  color: #000;
+  background-color: #fff;
 }

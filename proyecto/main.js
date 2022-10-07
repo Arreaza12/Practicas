@@ -1,5 +1,23 @@
 const poke_container = document.getElementById(`poke_container`);
 const pokemons_number = 151;
+const typeColor = {
+  bug: "#26de81",
+  dragon: "#ffeaa7",
+  electric: "#fed330",
+  fairy: "#FF0069",
+  fighting: "#30336b",
+  fire: "#f0932b",
+  flying: "#81ecec",
+  grass: "#00b894",
+  ground: "#EFB549",
+  ghost: "#a55eea",
+  ice: "#74b9ff",
+  normal: "#95afc0",
+  poison: "#6c5ce7",
+  psychic: "#a29bfe",
+  rock: "#2d3436",
+  water: "#0190FF",
+};
 
 const d = document,
   $pokemones = d.getElementById("pokemones"),
@@ -49,13 +67,14 @@ const createPokemonCard = (pokemon) => {
   const pokemonElement = document.createElement("div");
   pokemonElement.classList.add("pokemon");
   pokemonElement.classList.add("grow");
+
   const pokeInnerHtml = `
   <div class='img-container poke-card' onclick="findPokemon(${name})" id='${name}'>
       <img src='${sprites.front_default}' alt='${name}'/>
     
       </div>
       <div class='info'>
-      <span class='number'>${id}</span>
+      <span class='number'>#${id.toString().padStart(3, "0")}</span>
       <h3 class='name'>${name}</h3> 
       <small class='${type}'>${type}</small>
       
@@ -79,7 +98,6 @@ const findPokemon = async (card) => {
   const answer = await fetch(url);
   const pokemon = await answer.json();
 
-  //realize este ciclo para resumir todas las stats de los pokemones
   let allStats = "";
   for (let index = 0; index < pokemon.stats.length; index++) {
     const element = pokemon.stats[index];
@@ -87,7 +105,6 @@ const findPokemon = async (card) => {
       allStats + `<p>${element.stat.name} </br> ${element.base_stat}</p>`;
   }
 
-  //dentro del inner inclui el ciclo para ahorrarme lineas de codigo, ademas de usar la funcion ternaria vista ayer, ya que sin ella el codiigo me daba error
   modal.innerHTML = `
     <div class="pokeImagen">
       <img src='${pokemon.sprites.front_default}' alt='${name}'/>
@@ -107,25 +124,6 @@ const findPokemon = async (card) => {
     pokemon.types[1] ? pokemon.types[1]?.type?.name : ""
   }  </p>
     </div>`;
-
-  /*  anteriormente habia usado este codigo para colocar las stats de cada pokemon en su respectiva carta
-    
-    
-    modal.innerHTML = `
-    <div class="cardSize">
-      <img src='${pokemon.sprites.front_default}' alt='${name}'/> 
-    </div>
-      
-    <div class='info'>
-    <p>${pokemon.name}</p>
-    <p>${pokemon.id}</p>
-    <p>${pokemon.stats[0].stat.name}; ${pokemon.stats[0].base_stat}</p>
-    <p>${pokemon.stats[1].stat.name}; ${pokemon.stats[1].base_stat}</p>
-    <p>${pokemon.stats[2].stat.name}; ${pokemon.stats[2].base_stat}</p>
-    <p>${pokemon.stats[3].stat.name}; ${pokemon.stats[3].base_stat}</p>
-    <p>${pokemon.stats[4].stat.name}; ${pokemon.stats[4].base_stat}</p>
-    <p>${pokemon.stats[5].stat.name}; ${pokemon.stats[5].base_stat}</p>
-    <p>${pokemon.types[0].type.name} ; ${pokemon.types[1]?.type?.name}    </p> */
 };
 
 fetchPokemons();
